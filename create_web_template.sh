@@ -52,4 +52,6 @@ EOF
 
 setup
 
-echo "Done!"
+echo -e "Folder and files created;"
+find $projectName
+ 
