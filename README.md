@@ -2,16 +2,17 @@
 ### Created By; Ryan Gilluley
 
 ## Brief Description
-Simple script to create file and folder template for static front end web development with bootstrap CDN included.
+Simple script to create file and directory template structure for static front end web development with bootstrap CDN included.
 
 ## Usage
-Run the script after giving execute permissions
+Run the script after giving execute permissions.
 ```
 chmod +x create_web_template.sh
+./create_web_template.sh
 ```
 
 Best way to use this script is to make an alias for it so you can run it where ever you like.
-Point it to where the script is located and add it to your .bashrc.
+Add the line to your .bashrc and point it to where the script is located. 
 ```
 alias wt="~/create_web_template.sh"
 ```
@@ -20,3 +21,4 @@ alias wt="~/create_web_template.sh"
 - Add options to setup
     - Allow choice of weather to add bootstrap CDN or not
     - Ask weather to use CSS, SASS or SCSS and create necessary files
+    - Add different structures
