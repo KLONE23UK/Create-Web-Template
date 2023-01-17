@@ -1,4 +1,4 @@
-# CreateWebTemplate
+# create_web_template
 ### Created By; Ryan Gilluley
 
 ## Brief Description
@@ -10,8 +10,8 @@ Run the script after giving execute permissions
 chmod +x create_web_template.sh
 ```
 
-Best way to use this script is to make an alias for it so you can run it where ever you like.j
-Point it to where the script is located and add it to your ~/.bashrc.
+Best way to use this script is to make an alias for it so you can run it where ever you like.
+Point it to where the script is located and add it to your .bashrc.
 ```
 alias wt="~/create_web_template.sh"
 ```
