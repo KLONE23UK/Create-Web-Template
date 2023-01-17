@@ -68,9 +68,23 @@ htmlTemplate () {
 EOF
 }
 
-setup
+while getopts "n:" options; do
+    case "${options}" in
+        n)
+            projectName=${OPTARG}
+        ;;
+        :)
+            echo "error: -${OPTARG} requires an argument."
+        ;;
+    esac
+done
 
-echo -e "\nFolder and files created;"
+if [[ $projectName = "" ]]; then
+    setup
+else
+    makeFiles $projectName
+fi
+
+echo -e "\nDirectories and files created;"
 structure=`find $projectName`
 echo -e "${blue}$structure${endColour}"
- 
