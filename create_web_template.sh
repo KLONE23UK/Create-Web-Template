@@ -21,18 +21,23 @@ checkDirectory() {
             exit 1
         fi
     else
-        makeFiles $bootstrap
+        makeFiles $bootstrap $template
     fi
 }
 
 template() {
     if [[ $template = "" ]]; then
         echo 'Select a template from the list below (1/2...)
-1. Blank'
+1. Blank
+2. Simple'
         while true; do
             read template
             case $template in
                 1)
+                    checkDirectory $projectName
+                    break
+                ;;
+                2)
                     checkDirectory $projectName
                     break
                 ;;
@@ -90,6 +95,47 @@ htmlTemplate () {
 </html>
 EOF
         ;;
+        2)
+            cat > $projectName/index.htm << EOF
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    ${bootstrap[bootstrapCSS]}
+    <title>$projectName</title>
+</head>
+<body>
+    <div class="container-fluid ">
+        <div class="row p-4">
+            <div class="col-12 text-center" id="head">
+                <h1 id="main-title">$projectName</h1>
+            </div>
+            <div class="col-12" id="main-content">
+                <h3 class="titles">title</h3>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quibusdam minus, iure itaque molestias quaerat dignissimos laborum debitis nostrum optio laudantium, expedita aperiam reprehenderit ex ut quas voluptas aut dicta laboriosam.</p>
+            </div>
+        </div>
+    </div>
+    <script src="/js/index.js"></script>
+    ${bootstrap[bootstrapJS]}
+    ${bootstrap[bootstrapJQ]}
+</body>
+</html>
+EOF
+            cat > $projectName/css/style.css << EOF
+html {
+    padding:0px;
+}
+body {
+    margin: 0px;
+}
+EOF
+        ;;
+
     esac
 }
 
