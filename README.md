@@ -26,6 +26,10 @@ You can use the 'n' flag to set the name of the project.
 ```
 ./create_web_template.sh -n Project1
 ```
+Use quatation marks for multi word projects
+```
+./create_web_template.sh -n "Web Project 1"
+```
 You can use the 't' flag to set the template that you would like to use.
 ```
 ./create_web_template.sh -n Project1 -t 1
