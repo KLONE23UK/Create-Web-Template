@@ -1,8 +1,17 @@
 # create_web_template
 ### Created By; Ryan Gilluley
 
-## Brief Description
+## Description
 Simple script to create file and directory template structure for static front end web development with bootstrap CDN included.
+
+You can select select between three different templates
+1. Blank
+2. Basic
+3. Delux
+
+The Script will generate the files and directorys based on the project name and template specified.
+
+Good for practicing, testing or just getting a head start.
 
 ## Screenshots
 Running the script without any options.
@@ -13,6 +22,9 @@ Running the script with the 'n' flag to set the project name and 't' flag to set
 
 The script will ask if a directory with the same project name already exists and if you would like to overwrite it.
 ![alt text](https://eapi.pcloud.com/getpubthumb?code=XZwoKmZeoS2kFY8hr4jxQDm8lYhl7bELSy0&linkpassword=undefined&size=1612x704&crop=0&type=auto)
+
+Example of Web Template 3 - Delux
+![alt text](https://eapi.pcloud.com/getpubthumb?code=XZCQRSZIQvzHM71fQzPwU68fFPRJY05CBzV&linkpassword=undefined&size=1536x780&crop=0&type=auto)
 
 ## Usage
 Run the script after giving execute permissions.
@@ -36,7 +48,8 @@ You can use the 't' flag to set the template that you would like to use.
 ```
 
 Best way to use this script is to make an alias for it so you can run it where ever you like.
-Add the line to your .bashrc and point it to where the script is located. 
+Add the line to your .bashrc and point it to where the script is located.
+Navigate to the folder you want to genrate the project files.
 ```
 alias wt="~/create_web_template.sh"
 ```
@@ -48,4 +61,4 @@ wt -n Project1 -t 1
 - Add options to setup
     - Allow choice of weather to add bootstrap CDN or not
     - Add different file and directory structures
-- Add Delux template
+- ~~Add Delux template~~
