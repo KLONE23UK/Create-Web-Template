@@ -49,6 +49,18 @@ chmod +x create_web_template.sh
 
 ### Flags
 
+```OPTIONS:
+    -n      Set the project Name. Use "" for multi word name. i.e. ./create_web_template -n "Project 1"
+    -t      Set the template for files.
+            1   Blank
+            2   Simple
+            3   Delux
+    -h      Show this help message.
+```
+
+
+### Examples
+
 You can use the 'n' flag to set the name of the project.
 ```
 ./create_web_template.sh -n Project1
