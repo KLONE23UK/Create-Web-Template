@@ -3,6 +3,7 @@
 # create_web_template
 # By; Ryan Gilluley
 
+runner=true
 blue="\e[34m"
 endColour="\e[0m"
 banner="${blue}―――――――――――――――――――――――――――――――――\n|${endColour}\tcreate_web_template\t${blue}|\n―――――――――――――――――――――――――――――――――${endColour}\n"
@@ -59,21 +60,15 @@ template() {
 setup() {
     echo "What will this project be called?"
     read projectName
-    echo $projectName
     template $projectName
 }
 
 makeFiles () {
     # Make Folders
-    mkdir "$projectName"
-    mkdir "$projectName/css"
-    mkdir "$projectName/img"
-    mkdir "$projectName/js"
+    mkdir "$projectName" "$projectName/css" "$projectName/img" "$projectName/js"
 
     # Make files
-    touch "$projectName/css/style.css"
-    touch "$projectName/js/index.js"
-    touch "$projectName/index.htm"
+    touch "$projectName/css/style.css" "$projectName/js/index.js" "$projectName/index.htm"
 
     htmlTemplate $bootstrap $template
 }
@@ -279,17 +274,50 @@ EOF
         ;;
 
     esac
+
+    displayOutput
 }
 
-echo -e $banner
+displayOutput() {
+    echo -e "\nDirectories and files created;"
+    structure=`find "$projectName"`
+    echo -e "${blue}$structure${endColour}"
+}
 
-while getopts "n:t:" options; do
+helptext () {
+    echo '
+create_web_template
+
+USAGE: ./create_web_template -[ OPTION ] VALUE
+
+OPTIONS:
+    -n      Set the project Name. Use "" for multi word name. i.e. ./create_web_template -n "Project 1"
+    -t      Set the template for files. 
+        1   Blank
+        2   Simple
+        3   Delux
+    -h      Show this help message.
+
+EXAMPLES:
+    ./create_web_template -n Project1
+
+    ./create_web_template -n "2nd Project" 
+
+    ./create_web_template -n "Third Project" -t 3
+'
+}
+
+while getopts "n:t:h" options; do
     case "${options}" in
         n )
             projectName="${OPTARG}"
         ;;
         t )
             template="${OPTARG}"
+        ;;
+        h )
+            runner=false
+            helptext
         ;;
         : )
             echo -e "*Cannot set option: ${OPTARG} : Starting normally without options.*\n"
@@ -298,14 +326,16 @@ while getopts "n:t:" options; do
             echo -e "*invalid command: ${OPTARG} : Starting normally without options.*\n"
     esac
 done
+runProgram() {
+    if [[ $runner = true ]]; then
+        echo -e $banner
 
-if [[ $projectName = "" ]]; then
-    setup
-else
-    template $projectName
-fi
+        if [[ $projectName = "" ]]; then
+            setup
+        else
+            template $projectName
+        fi
+    fi
+}
 
-
-echo -e "\nDirectories and files created;"
-structure=`find "$projectName"`
-echo -e "${blue}$structure${endColour}"
+runProgram
