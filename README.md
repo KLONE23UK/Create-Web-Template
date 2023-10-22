@@ -6,7 +6,6 @@
 - [Screenshots](#screenshots)
 - [Usage](#usage)
     - [Flags](#flags)
-- [Future Plans](#future-plans)
 
 
 ## Description
@@ -83,11 +82,3 @@ alias wt="~/create_web_template.sh"
 ```
 wt -n Project1 -t 1
 ```
-
-
-## Future Plans
-
-- Add options to setup
-    - Allow choice of weather to add bootstrap CDN or not
-    - Add different file and directory structures
-- ~~Add Delux template~~
