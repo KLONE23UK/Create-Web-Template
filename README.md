@@ -6,6 +6,7 @@
 - [Screenshots](#screenshots)
 - [Usage](#usage)
     - [Flags](#flags)
+- [Examples](#examples)
 
 
 ## Description
@@ -75,7 +76,7 @@ You can use the 't' flag to set the template that you would like to use.
 
 Best way to use this script is to make an alias for it so you can run it where ever you like.
 Add the line to your .bashrc and point it to where the script is located.
-Navigate to the folder you want to generate the project files.
+Navigate to the folder where you want to generate the project files.
 ```
 alias wt="~/create_web_template.sh"
 ```
